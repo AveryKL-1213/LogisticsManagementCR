@@ -15,7 +15,7 @@ interface UserDao {
     fun loadAllUsers(): List<User>
 
     @Query("select * from User where user_login = :user_login")
-    fun loadUsersByLogin(user_login: Int): List<User>
+    fun loadUsersByLogin(user_login: String): List<User>
 
     @Delete
     fun deleteUser(user: User)

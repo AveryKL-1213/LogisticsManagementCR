@@ -12,9 +12,9 @@ data class WayBill(
     var consigneePhoneNumber: String,//收货电话
     var transportationArrivalStation: String, //到站
     var goodsName: String, //货物名称
-    var numberOfPackages: Int, //件数
-    var freightPaidByTheReceivingParty: Int, //到付运费
-    var freightPaidByConsignor: Int //已付运费
+    var numberOfPackages: String, //件数
+    var freightPaidByTheReceivingParty: String, //到付运费
+    var freightPaidByConsignor: String //已付运费
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0

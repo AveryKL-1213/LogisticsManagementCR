@@ -1,6 +1,7 @@
 package com.logisticsmanagementcr.android
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.logisticsmanagementcr.android.databinding.ActivityLogedBinding
@@ -29,6 +30,11 @@ class LoggedActivity : BaseActivity() {
         binding.logoutButton.setOnClickListener {
             ActivityBox.finishAll()
             android.os.Process.killProcess(android.os.Process.myPid())
+        }
+
+        binding.enterWaybillButton.setOnClickListener {
+            myStartActivity<EnterWayBillActivity>(this) {
+            }
         }
 
     }

@@ -6,14 +6,14 @@ import androidx.room.*
 interface WayBillDao {
 
     @Insert
-    fun insertUser(user: User): Long
+    fun insertWayBill(wayBill: WayBill): Long
 
     @Update
-    fun updateUser(newUser: User)
+    fun updateWayBill(newWayBill: WayBill)
 
-    @Query("select * from User")
-    fun loadAllBills(): List<User>
+    @Query("select * from WayBill")
+    fun loadAllBills(): List<WayBill>
 
     @Delete
-    fun deleteBills(user: User)
+    fun deleteBills(wayBill: WayBill)
 }

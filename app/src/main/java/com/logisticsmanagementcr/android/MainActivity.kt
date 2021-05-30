@@ -38,10 +38,7 @@ class MainActivity : BaseActivity() {
                     user2.id = userDao.insertUser(user2)
                     Log.d("Test", "Add User")
                 }
-                truePwd = if (user != "")
-                    userDao.loadUsersByLogin(user.toInt())
-                else
-                    userDao.loadUsersByLogin(0)
+                truePwd = userDao.loadUsersByLogin(user)
                 if (truePwd.isNotEmpty()) {
                     tmpPwd = truePwd[0].user_password
                     startLoggedActivity(tmpPwd, pwd, truePwd[0].user_name)

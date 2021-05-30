@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(version = 2, entities = [User::class])
+@Database(version = 3, entities = [User::class, WayBill::class])
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -16,9 +16,20 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
 
-//        private val MIGRATION_1_2 = object : Migration(1, 2) {
+//        private val MIGRATION_2_3 = object : Migration(1, 2) {
 //            override fun migrate(database: SupportSQLiteDatabase) {
-//                database.execSQL("create table Book (id integer primary key autoincrement not null, name text not null, pages integer not null)")
+//                database.execSQL(
+//                    "create table WayBill (id integer primary key autoincrement not null, " +
+//                            "consignor text not null" +
+//                            "consignorPhoneNumber text not null" +
+//                            "consignee text not null" +
+//                            "consigneePhoneNumber text not null" +
+//                            "transportationArrivalStation text not null" +
+//                            "goodsName text not null" +
+//                            "numberOfPackages text not null" +
+//                            "freightPaidByTheReceivingParty text not null" +
+//                            "freightPaidByConsignor text not null)"
+//                )
 //            }
 //        }
 
