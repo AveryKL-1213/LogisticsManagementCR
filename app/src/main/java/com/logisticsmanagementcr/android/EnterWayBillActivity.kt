@@ -1,12 +1,10 @@
 package com.logisticsmanagementcr.android
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.logisticsmanagementcr.android.dao.AppDatabase
 import com.logisticsmanagementcr.android.dao.WayBill
 import com.logisticsmanagementcr.android.databinding.EnterwaybillBinding
-import java.sql.Time
 import kotlin.concurrent.thread
 
 class EnterWayBillActivity : BaseActivity() {

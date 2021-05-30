@@ -2,7 +2,6 @@ package com.logisticsmanagementcr.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.logisticsmanagementcr.android.dao.AppDatabase
 import com.logisticsmanagementcr.android.dao.WayBill
 import com.logisticsmanagementcr.android.databinding.ActivityNativeWayBillBinding
