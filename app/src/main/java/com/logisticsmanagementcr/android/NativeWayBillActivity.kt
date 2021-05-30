@@ -9,9 +9,12 @@ import com.logisticsmanagementcr.android.databinding.ActivityNativeWayBillBindin
 import kotlin.concurrent.thread
 
 class NativeWayBillActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityNativeWayBillBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityNativeWayBillBinding.inflate(layoutInflater)
+        binding = ActivityNativeWayBillBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
@@ -22,13 +25,21 @@ class NativeWayBillActivity : AppCompatActivity() {
 
         val wayBillDao = AppDatabase.getDatabase(this).waybillDao()
         lateinit var nativeWayBilList: List<WayBill>
+        var data = ""
         thread {
             nativeWayBilList = wayBillDao.loadAllBills()
             for (bill in nativeWayBilList) {
-                Log.d("Test", "${bill.waybillNo} ${bill.consignee}")
+                data += "${bill.waybillNo} ${bill.consignee}\n"
             }
+            showResponse(data)
         }
 
 
+    }
+
+    private fun showResponse(response: String) {
+        runOnUiThread {
+            binding.responseText.text = response
+        }
     }
 }
