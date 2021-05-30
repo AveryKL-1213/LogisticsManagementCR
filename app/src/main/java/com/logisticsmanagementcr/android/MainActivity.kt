@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
             val pwd = binding.passwordText.text.toString()
             val user1 = User("程睿", "计算机1803", "20184409", "991207", "15366251992")
             val user2 = User("王有为", "计算机1803", "20184544", "123456", "15541951980")
-            var tmpPwd: String = ""
+            var tmpPwd: String
             lateinit var truePwd: List<User>
             thread {
                 if (userDao.loadAllUsers().isEmpty()) {
@@ -38,10 +38,10 @@ class MainActivity : BaseActivity() {
                     user2.id = userDao.insertUser(user2)
                     Log.d("Test", "Add User")
                 }
-                if (user != "")
-                    truePwd = userDao.loadUsersByLogin(user.toInt())
+                truePwd = if (user != "")
+                    userDao.loadUsersByLogin(user.toInt())
                 else
-                    truePwd = userDao.loadUsersByLogin(0)
+                    userDao.loadUsersByLogin(0)
                 if (truePwd.isNotEmpty()) {
                     tmpPwd = truePwd[0].user_password
                     startLoggedActivity(tmpPwd, pwd, truePwd[0].user_name)
@@ -64,7 +64,7 @@ class MainActivity : BaseActivity() {
             if (tmpPwd == pwd) { // 用户名密码对应正确，跳转到下一界面，传递用户名及密码数据
                 myStartActivity<LoggedActivity>(this) {
                     putExtra("username", user)
-                    putExtra("password", pwd.toString())
+                    putExtra("password", pwd)
                 }
             } else { // 不对应，使用Toast给出提示
                 Toast.makeText(
