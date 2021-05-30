@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.logisticsmanagementcr.android.databinding.ActivityLogedBinding
 
-class LogedActivity : BaseActivity() {
+class LoggedActivity : BaseActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

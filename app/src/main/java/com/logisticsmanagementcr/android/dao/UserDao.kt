@@ -19,4 +19,7 @@ interface UserDao {
 
     @Delete
     fun deleteUser(user: User)
+
+    @Query("delete from User where user_name = :user_name")
+    fun deleteUserByName(user_name: String): Int
 }
