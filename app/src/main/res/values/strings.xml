@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">物流管理系统v2.0_CR</string>
+    <string name="login_image">Login image</string>
+    <string name="logout_image">Logout image</string>
+    <string name="app_version">物流管理系统 v2.0</string>
+    <string name="TypePasswordHint">请输入密码</string>
+    <string name="TypeAccountHint">请输入登录名</string>
+    <string name="loginButtonText">登 陆</string>
+    <string name="logoutButtonText">退 出</string>
+    <string name="switchUser">切换用户</string>
+    <string name="failLogin">未登录…</string>
+</resources>
