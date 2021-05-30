@@ -4,13 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.logisticsmanagementcr.android.databinding.ActivityLogedBinding
+import com.logisticsmanagementcr.android.databinding.ActivityLoggedBinding
 
 class LoggedActivity : BaseActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityLogedBinding.inflate(layoutInflater)
+        val binding = ActivityLoggedBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
@@ -31,9 +31,24 @@ class LoggedActivity : BaseActivity() {
             ActivityBox.finishAll()
             android.os.Process.killProcess(android.os.Process.myPid())
         }
-
+        // 录入运单
         binding.enterWaybillButton.setOnClickListener {
             myStartActivity<EnterWayBillActivity>(this) {
+            }
+        }
+        // 查询本机运单
+        binding.queryNativeWaybillButton.setOnClickListener {
+            myStartActivity<NativeWayBillActivity>(this) {
+            }
+        }
+        //查询公司运单xml
+        binding.queryCompanyWaybillXMLButton.setOnClickListener {
+            myStartActivity<CompanyWayBillXMLActivity>(this) {
+            }
+        }
+        //查询公司运单JSON
+        binding.queryCompanyWaybillJSonButton.setOnClickListener {
+            myStartActivity<CompanyWayBillJSONActivity>(this) {
             }
         }
 

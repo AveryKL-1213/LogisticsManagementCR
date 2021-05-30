@@ -9,4 +9,8 @@
     <string name="logoutButtonText">退 出</string>
     <string name="switchUser">切换用户</string>
     <string name="failLogin">未登录…</string>
+    <string name="back">返 回</string>
+    <string name="nativeBill">本机运单</string>
+    <string name="companyBillXML">公司运单XML</string>
+    <string name="companyBillJSON">公司运单JSON</string>
 </resources>
