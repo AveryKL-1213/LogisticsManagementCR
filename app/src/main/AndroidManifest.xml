@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LogisticsManagementCR">
-        <activity android:name=".CompanyWayBillJSONActivity"></activity>
+        <activity android:name=".CompanyWayBillJSONActivity" />
         <activity android:name=".CompanyWayBillXMLActivity" />
         <activity android:name=".NativeWayBillActivity" />
         <activity android:name=".MainActivity">
