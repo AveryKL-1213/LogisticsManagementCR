@@ -6,7 +6,6 @@ import android.util.Log
 import com.logisticsmanagementcr.android.databinding.ActivityCompanyWayBillJsonactivityBinding
 import com.logisticsmanagementcr.android.network.JsonBillRecord
 import com.logisticsmanagementcr.android.network.JsonBillService
-import com.logisticsmanagementcr.android.network.JsonWayBill
 import com.logisticsmanagementcr.android.network.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback

@@ -53,6 +53,17 @@ class EnterWayBillActivity : BaseActivity() {
                     //val billList = wayBillDao.loadAllBills()
                     //Log.d("Test", "${billList.size} ${billList[0].waybillNo}")
                 }
+                Toast.makeText(this, "运单录入成功", Toast.LENGTH_SHORT).show()
+                binding.nameText12.setText("")
+                binding.nameText22.setText("")
+                binding.nameText32.setText("")
+                binding.nameText42.setText("")
+                binding.nameText52.setText("")
+                binding.nameText62.setText("")
+                binding.nameText72.setText("")
+                binding.nameText82.setText("")
+                binding.nameText92.setText("")
+
             } else {
                 Toast.makeText(this, "红色框中为必填项，请填写完整", Toast.LENGTH_SHORT).show()
             }
