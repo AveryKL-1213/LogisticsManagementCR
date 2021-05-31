@@ -12,18 +12,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LogisticsManagementCR">
-        <activity android:name=".CompanyWayBillJSONActivity" />
-        <activity android:name=".CompanyWayBillXMLActivity" />
-        <activity android:name=".NativeWayBillActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".CompanyWayBillJSONActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CompanyWayBillXMLActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NativeWayBillActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoggedActivity" />
-        <activity android:name=".EnterWayBillActivity" />
+        <activity
+            android:name=".LoggedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EnterWayBillActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
