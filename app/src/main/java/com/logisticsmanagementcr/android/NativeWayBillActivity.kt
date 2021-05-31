@@ -2,14 +2,20 @@ package com.logisticsmanagementcr.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.logisticsmanagementcr.android.dao.AppDatabase
 import com.logisticsmanagementcr.android.dao.WayBill
 import com.logisticsmanagementcr.android.databinding.ActivityNativeWayBillBinding
+import com.logisticsmanagementcr.android.model.WayBillAdapter
+import com.logisticsmanagementcr.android.model.WayBillDisplay
 import kotlin.concurrent.thread
 
 class NativeWayBillActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNativeWayBillBinding
+    private val billList = ArrayList<WayBillDisplay>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,24 +27,28 @@ class NativeWayBillActivity : AppCompatActivity() {
             finish()
         }
 
-
         val wayBillDao = AppDatabase.getDatabase(this).waybillDao()
         lateinit var nativeWayBilList: List<WayBill>
-        var data = ""
         thread {
             nativeWayBilList = wayBillDao.loadAllBills()
             for (bill in nativeWayBilList) {
-                data += "${bill.waybillNo} ${bill.consignee}\n"
+                Log.d("Test", "${bill.waybillNo} ${bill.consignee}\n")
+                val billNo = "No: ${bill.waybillNo}"
+                val billTrace =
+                    "${bill.transportationArrivalStation} - 沈阳  ${bill.goodsName} ${bill.numberOfPackages}件  到付${bill.freightPaidByTheReceivingParty}元"
+                val billName = "收货人：${bill.consignee}(${bill.consigneePhoneNumber})"
+                billList.add(WayBillDisplay(billNo, billTrace, billName))
             }
-            showResponse(data)
+            showBill()
         }
-
-
     }
 
-    private fun showResponse(response: String) {
+    private fun showBill() {
         runOnUiThread {
-            binding.responseText.text = response
+            val layoutManager = LinearLayoutManager(this)
+            binding.recyclerView.layoutManager = layoutManager
+            val adapter = WayBillAdapter(billList)
+            binding.recyclerView.adapter = adapter
         }
     }
 }
