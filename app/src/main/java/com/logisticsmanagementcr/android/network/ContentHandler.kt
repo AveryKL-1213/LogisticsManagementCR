@@ -84,12 +84,11 @@ class ContentHandler : DefaultHandler() {
 //                name.toString().trim()
 //            }, version: ${version.toString().trim()}\n"
 //
-            Log.d("Test", "${waybillNo.toString().trim()} ${consignee.toString().trim()}")
             val billNo = "No: ${waybillNo.toString().trim()}"
             val billTrace =
                 "${
                     transportationArrivalStation.toString().trim()
-                } - 沈阳  ${
+                } - ${transportationDepartureStation.toString().trim()}  ${
                     goodsName.toString().trim()
                 } ${
                     numberOfPackages.toString().trim()

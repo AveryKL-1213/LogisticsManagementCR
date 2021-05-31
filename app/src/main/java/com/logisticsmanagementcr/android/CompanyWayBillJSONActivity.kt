@@ -2,7 +2,10 @@ package com.logisticsmanagementcr.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.logisticsmanagementcr.android.databinding.ActivityCompanyWayBillJsonactivityBinding
+import com.logisticsmanagementcr.android.model.WayBillAdapter
+import com.logisticsmanagementcr.android.model.WayBillDisplay
 import com.logisticsmanagementcr.android.network.JsonBillRecord
 import com.logisticsmanagementcr.android.network.JsonBillService
 import com.logisticsmanagementcr.android.network.ServiceCreator
@@ -13,6 +16,8 @@ import retrofit2.Response
 class CompanyWayBillJSONActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCompanyWayBillJsonactivityBinding
+    private val billList = ArrayList<WayBillDisplay>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +28,6 @@ class CompanyWayBillJSONActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             finish()
         }
-        var responseData = ""
         val jsonBillService = ServiceCreator.create<JsonBillService>()
         jsonBillService.getAppData().enqueue(object : Callback<JsonBillRecord> {
             override fun onResponse(
@@ -33,9 +37,13 @@ class CompanyWayBillJSONActivity : AppCompatActivity() {
                 val jsonBillList = response.body()
                 if (jsonBillList != null) {
                     for (bill in jsonBillList.waybillRecord) {
-                        responseData += "${bill.waybillNo} ${bill.consignee}\n"
+                        val billNo = "No: ${bill.waybillNo}"
+                        val billTrace =
+                            "${bill.transportationArrivalStation} - ${bill.transportationDepartureStation}  ${bill.goodsName} ${bill.numberOfPackages}件  到付${bill.freightPaidByTheReceivingParty}元"
+                        val billName = "收货人：${bill.consignee}(${bill.consigneePhoneNumber})"
+                        billList.add(WayBillDisplay(billNo, billTrace, billName))
                     }
-                    showResponse(responseData)
+                    showResponse(billList)
                 }
             }
 
@@ -46,9 +54,12 @@ class CompanyWayBillJSONActivity : AppCompatActivity() {
 
     }
 
-    private fun showResponse(response: String) {
+    private fun showResponse(billList: ArrayList<WayBillDisplay>) {
         runOnUiThread {
-            binding.responseText.text = response
+            val layoutManager = LinearLayoutManager(this)
+            binding.recyclerView.layoutManager = layoutManager
+            val adapter = WayBillAdapter(billList)
+            binding.recyclerView.adapter = adapter
         }
     }
 }
