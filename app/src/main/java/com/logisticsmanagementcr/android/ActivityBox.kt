@@ -2,6 +2,7 @@ package com.logisticsmanagementcr.android
 
 import android.app.Activity
 
+//处理Activity的销毁
 object ActivityBox {
 
     private val activities = ArrayList<Activity>()

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 
+//用于全局获取context
 class LogisticsManagementApplication : Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")

@@ -5,6 +5,7 @@ import com.logisticsmanagementcr.android.adapter.WayBillDisplay
 import org.xml.sax.helpers.DefaultHandler
 import org.xml.sax.Attributes
 
+//用于SAX解析XML的ContentHandler
 class ContentHandler : DefaultHandler() {
 
     private var nodeName = ""
@@ -21,9 +22,10 @@ class ContentHandler : DefaultHandler() {
     private lateinit var freightPaidByTheReceivingParty: StringBuilder //到付运费
     private lateinit var freightPaidByConsignor: StringBuilder //寄付运费
 
-    private val billList = ArrayList<WayBillDisplay>()
+    private val billList = ArrayList<WayBillDisplay>() // 存储用于输出的运单信息
 
     override fun startDocument() {
+        //每条数据对应一个StringBuilder对象
         waybillNo = StringBuilder()
         consignor = StringBuilder()
         consignorPhoneNumber = StringBuilder()
@@ -53,7 +55,7 @@ class ContentHandler : DefaultHandler() {
     }
 
     override fun characters(ch: CharArray, start: Int, length: Int) {
-        // 根据当前的节点名判断将内容添加到哪一个StringBuilder对象中
+        // 根据当前的节点名判断将内容添加到对应的StringBuilder对象中
         when (nodeName) {
             "waybillNo" -> waybillNo.append(ch, start, length)
             "consignor" -> consignor.append(ch, start, length)
@@ -80,10 +82,7 @@ class ContentHandler : DefaultHandler() {
 
     override fun endElement(uri: String, localName: String, qName: String) {
         if ("waybillRecord" == localName) {
-//            response += "id: ${id.toString().trim()}, name: ${
-//                name.toString().trim()
-//            }, version: ${version.toString().trim()}\n"
-//
+            // 格式化信息并添加到billList
             val billNo = "No: ${waybillNo.toString().trim()}"
             val billTrace =
                 "${
@@ -96,7 +95,7 @@ class ContentHandler : DefaultHandler() {
             val billName =
                 "收货人：${consignee.toString().trim()}(${consigneePhoneNumber.toString().trim()})"
             billList.add(WayBillDisplay(billNo, billTrace, billName))
-            // 最后要将StringBuilder清空掉
+            // 将StringBuilder清空掉
             waybillNo.setLength(0)
             consignor.setLength(0)
             consignorPhoneNumber.setLength(0)
@@ -116,6 +115,6 @@ class ContentHandler : DefaultHandler() {
     override fun endDocument() {
     }
 
-    fun getResponse() = billList
+    fun getResponse() = billList //返回billList用于输出
 
 }

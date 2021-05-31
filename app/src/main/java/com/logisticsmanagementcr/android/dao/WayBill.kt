@@ -3,6 +3,7 @@ package com.logisticsmanagementcr.android.dao
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+//运单信息实体
 @Entity
 data class WayBill(
     var waybillNo: String, //运单号

@@ -2,6 +2,7 @@ package com.logisticsmanagementcr.android.dao
 
 import androidx.room.*
 
+//运单表操作
 @Dao
 interface WayBillDao {
 

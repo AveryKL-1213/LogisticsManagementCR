@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.logisticsmanagementcr.android.databinding.WayBillItemBinding
 
+//用于显示输出运单信息的RecyclerView的Adapter
 class WayBillAdapter(private val wayBillList: List<WayBillDisplay>) :
     RecyclerView.Adapter<WayBillAdapter.ViewHolder>() {
 
@@ -19,6 +20,7 @@ class WayBillAdapter(private val wayBillList: List<WayBillDisplay>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = WayBillItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val viewHolder = ViewHolder(binding)
+        //每个子视图的点击事件，使用Toast提示基础信息
         binding.root.setOnClickListener {
             val position = viewHolder.adapterPosition
             val bill = wayBillList[position]

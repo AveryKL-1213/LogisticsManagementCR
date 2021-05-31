@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-
+//数据库使用Room，现为第三个版本，包含用户表和运单表两个表
 @Database(version = 3, entities = [User::class, WayBill::class])
 abstract class AppDatabase : RoomDatabase() {
 

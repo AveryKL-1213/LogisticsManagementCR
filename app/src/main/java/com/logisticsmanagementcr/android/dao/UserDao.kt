@@ -2,6 +2,7 @@ package com.logisticsmanagementcr.android.dao
 
 import androidx.room.*
 
+//用户表操作
 @Dao
 interface UserDao {
 

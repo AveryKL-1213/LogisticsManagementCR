@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.logisticsmanagementcr.android.databinding.ActivityLoggedBinding
 
+//登陆后的页面
 class LoggedActivity : BaseActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,7 +15,7 @@ import java.io.StringReader
 import java.lang.Exception
 import javax.xml.parsers.SAXParserFactory
 
-
+//获取XML格式的公司运单，使用OkHttp进行请求，SAX进行解析
 class CompanyWayBillXMLActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCompanyWayBillXmlactivityBinding
@@ -26,6 +26,7 @@ class CompanyWayBillXMLActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        //返回按钮
         binding.backButton.setOnClickListener {
             finish()
         }
@@ -65,6 +66,7 @@ class CompanyWayBillXMLActivity : AppCompatActivity() {
         }
     }
 
+    //在recyclerView中显示数据，使用runOnUiThread来在主进程中进行操作
     private fun showResponse(billList: ArrayList<WayBillDisplay>) {
         runOnUiThread {
             val layoutManager = LinearLayoutManager(this)

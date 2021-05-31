@@ -8,6 +8,7 @@ import com.logisticsmanagementcr.android.dao.User
 import com.logisticsmanagementcr.android.databinding.ActivityMainBinding
 import kotlin.concurrent.thread
 
+//登陆界面，为主Activity
 class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -33,16 +34,17 @@ class MainActivity : BaseActivity() {
             var tmpPwd: String
             lateinit var truePwd: List<User>
             thread {
-                if (userDao.loadAllUsers().isEmpty()) {
+                if (userDao.loadAllUsers().isEmpty()) { // 如果数据库存在，就不用再增加数据，否则增加，主要便于在新设备上进行调试
                     user1.id = userDao.insertUser(user1)
                     user2.id = userDao.insertUser(user2)
                     Log.d("Test", "Add User")
                 }
+                // 获取与user对应的密码
                 truePwd = userDao.loadUsersByLogin(user)
-                if (truePwd.isNotEmpty()) {
+                if (truePwd.isNotEmpty()) {// 不为空，user存在进行匹配
                     tmpPwd = truePwd[0].user_password
                     startLoggedActivity(tmpPwd, pwd, truePwd[0].user_name)
-                } else {
+                } else {//为空，对startLoggedActivity直接给出不匹配的数据表示登陆失败
                     startLoggedActivity("0", "1", "")
                 }
             }
@@ -57,7 +59,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun startLoggedActivity(tmpPwd: String, pwd: String, user: String) {
-        runOnUiThread {
+        runOnUiThread { //在主线程中对UI进行操作
             if (tmpPwd == pwd) { // 用户名密码对应正确，跳转到下一界面，传递用户名及密码数据
                 myStartActivity<LoggedActivity>(this) {
                     putExtra("username", user)
