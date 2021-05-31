@@ -1,7 +1,7 @@
 package com.logisticsmanagementcr.android.network
 
 import android.util.Log
-import com.logisticsmanagementcr.android.model.WayBillDisplay
+import com.logisticsmanagementcr.android.adapter.WayBillDisplay
 import org.xml.sax.helpers.DefaultHandler
 import org.xml.sax.Attributes
 

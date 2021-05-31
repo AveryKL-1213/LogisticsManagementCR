@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.logisticsmanagementcr.android.dao.AppDatabase
 import com.logisticsmanagementcr.android.dao.WayBill
 import com.logisticsmanagementcr.android.databinding.ActivityNativeWayBillBinding
-import com.logisticsmanagementcr.android.model.WayBillAdapter
-import com.logisticsmanagementcr.android.model.WayBillDisplay
+import com.logisticsmanagementcr.android.adapter.WayBillAdapter
+import com.logisticsmanagementcr.android.adapter.WayBillDisplay
 import kotlin.concurrent.thread
 
 class NativeWayBillActivity : AppCompatActivity() {

@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.logisticsmanagementcr.android.databinding.ActivityCompanyWayBillXmlactivityBinding
-import com.logisticsmanagementcr.android.model.WayBillAdapter
-import com.logisticsmanagementcr.android.model.WayBillDisplay
+import com.logisticsmanagementcr.android.adapter.WayBillAdapter
+import com.logisticsmanagementcr.android.adapter.WayBillDisplay
 import com.logisticsmanagementcr.android.network.ContentHandler
 import com.logisticsmanagementcr.android.network.HttpUtil
 import okhttp3.*

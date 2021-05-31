@@ -1,4 +1,4 @@
-package com.logisticsmanagementcr.android.model
+package com.logisticsmanagementcr.android.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

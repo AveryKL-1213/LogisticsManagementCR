@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.logisticsmanagementcr.android.databinding.ActivityCompanyWayBillJsonactivityBinding
-import com.logisticsmanagementcr.android.model.WayBillAdapter
-import com.logisticsmanagementcr.android.model.WayBillDisplay
+import com.logisticsmanagementcr.android.adapter.WayBillAdapter
+import com.logisticsmanagementcr.android.adapter.WayBillDisplay
 import com.logisticsmanagementcr.android.network.JsonBillRecord
 import com.logisticsmanagementcr.android.network.JsonBillService
 import com.logisticsmanagementcr.android.network.ServiceCreator
