@@ -2,7 +2,10 @@ package com.logisticsmanagementcr.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.logisticsmanagementcr.android.databinding.ActivityCompanyWayBillXmlactivityBinding
+import com.logisticsmanagementcr.android.model.WayBillAdapter
+import com.logisticsmanagementcr.android.model.WayBillDisplay
 import com.logisticsmanagementcr.android.network.ContentHandler
 import com.logisticsmanagementcr.android.network.HttpUtil
 import okhttp3.*
@@ -62,9 +65,12 @@ class CompanyWayBillXMLActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResponse(response: String) {
+    private fun showResponse(billList: ArrayList<WayBillDisplay>) {
         runOnUiThread {
-            binding.responseText.text = response
+            val layoutManager = LinearLayoutManager(this)
+            binding.recyclerView.layoutManager = layoutManager
+            val adapter = WayBillAdapter(billList)
+            binding.recyclerView.adapter = adapter
         }
     }
 }

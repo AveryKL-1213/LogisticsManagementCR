@@ -2,9 +2,7 @@ package com.logisticsmanagementcr.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.logisticsmanagementcr.android.dao.AppDatabase
 import com.logisticsmanagementcr.android.dao.WayBill
 import com.logisticsmanagementcr.android.databinding.ActivityNativeWayBillBinding
@@ -32,11 +30,22 @@ class NativeWayBillActivity : AppCompatActivity() {
         thread {
             nativeWayBilList = wayBillDao.loadAllBills()
             for (bill in nativeWayBilList) {
-                Log.d("Test", "${bill.waybillNo} ${bill.consignee}\n")
                 val billNo = "No: ${bill.waybillNo}"
+                val fee: String = if (bill.freightPaidByTheReceivingParty == "")
+                    "0"
+                else
+                    bill.freightPaidByTheReceivingParty
+                val phone: String = if (bill.consigneePhoneNumber == "")
+                    ""
+                else
+                    "(${bill.consigneePhoneNumber})"
+                val receiver = if (bill.consignee == "")
+                    "未填写"
+                else
+                    bill.consignee
                 val billTrace =
-                    "${bill.transportationArrivalStation} - 沈阳  ${bill.goodsName} ${bill.numberOfPackages}件  到付${bill.freightPaidByTheReceivingParty}元"
-                val billName = "收货人：${bill.consignee}(${bill.consigneePhoneNumber})"
+                    "${bill.transportationArrivalStation} - 沈阳  ${bill.goodsName} ${bill.numberOfPackages}件  到付${fee}元"
+                val billName = "收货人：${receiver}$phone"
                 billList.add(WayBillDisplay(billNo, billTrace, billName))
             }
             showBill()

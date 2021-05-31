@@ -1,6 +1,7 @@
 package com.logisticsmanagementcr.android.network
 
 import android.util.Log
+import com.logisticsmanagementcr.android.model.WayBillDisplay
 import org.xml.sax.helpers.DefaultHandler
 import org.xml.sax.Attributes
 
@@ -20,7 +21,7 @@ class ContentHandler : DefaultHandler() {
     private lateinit var freightPaidByTheReceivingParty: StringBuilder //到付运费
     private lateinit var freightPaidByConsignor: StringBuilder //寄付运费
 
-    private var response = "SAX:\n"
+    private val billList = ArrayList<WayBillDisplay>()
 
     override fun startDocument() {
         waybillNo = StringBuilder()
@@ -83,7 +84,19 @@ class ContentHandler : DefaultHandler() {
 //                name.toString().trim()
 //            }, version: ${version.toString().trim()}\n"
 //
-            response += "${waybillNo.toString().trim()} ${consignee.toString().trim()}\n"
+            Log.d("Test", "${waybillNo.toString().trim()} ${consignee.toString().trim()}")
+            val billNo = "No: ${waybillNo.toString().trim()}"
+            val billTrace =
+                "${
+                    transportationArrivalStation.toString().trim()
+                } - 沈阳  ${
+                    goodsName.toString().trim()
+                } ${
+                    numberOfPackages.toString().trim()
+                }件  到付${freightPaidByTheReceivingParty.toString().trim()}元"
+            val billName =
+                "收货人：${consignee.toString().trim()}(${consigneePhoneNumber.toString().trim()})"
+            billList.add(WayBillDisplay(billNo, billTrace, billName))
             // 最后要将StringBuilder清空掉
             waybillNo.setLength(0)
             consignor.setLength(0)
@@ -104,6 +117,6 @@ class ContentHandler : DefaultHandler() {
     override fun endDocument() {
     }
 
-    fun getResponse() = response
+    fun getResponse() = billList
 
 }
