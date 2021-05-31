@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/royal_blue"
-    >
+    android:background="@color/royal_blue">
 
     <TextView
         android:id="@+id/title"
@@ -14,7 +13,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="录入订单"
+        android:text="@string/enterBill"
         android:textColor="@color/white"
         android:textSize="40sp" />
 
@@ -37,33 +36,35 @@
 
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.8"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/arrivalStation"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="到站："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText12"
             style="@style/my_edittext_style"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.3"
             android:layout_gravity="center_vertical"
-
+            android:layout_weight="1"
             android:autofillHints="Account"
-
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textview13"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.8"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1."
+            android:gravity="center_vertical"
+            android:text="@string/shenyang"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="发站：沈阳"/>
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -71,8 +72,8 @@
         android:id="@+id/lin2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin1"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -80,24 +81,26 @@
             android:id="@+id/textview21"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/consignor"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="发货人"/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText22"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -106,8 +109,8 @@
         android:id="@+id/lin3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin2"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -115,24 +118,26 @@
             android:id="@+id/textview31"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/consignorPhone"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="发货电话："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText32"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -141,8 +146,8 @@
         android:id="@+id/lin4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin3"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -150,24 +155,26 @@
             android:id="@+id/textview41"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/consignee"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="收货人："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText42"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -176,8 +183,8 @@
         android:id="@+id/lin5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin4"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -185,24 +192,26 @@
             android:id="@+id/textview51"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/consigneePhone"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="收货电话："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText52"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -211,35 +220,35 @@
         android:id="@+id/lin6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin5"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textview61"
             android:layout_width="0dp"
-
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/goodsName"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="货物名称："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText62"
+            style="@style/my_edittext_style"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
-            style="@style/my_edittext_style"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
-
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -248,8 +257,8 @@
         android:id="@+id/lin7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin6"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -257,26 +266,26 @@
             android:id="@+id/textview71"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
-
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/pieces"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="件数："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText72"
+            style="@style/my_edittext_style"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
-            style="@style/my_edittext_style"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
-
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -285,8 +294,8 @@
         android:id="@+id/lin8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin7"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -294,24 +303,26 @@
             android:id="@+id/textview81"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/paidFee"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="已付运费"/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText82"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -320,8 +331,8 @@
         android:id="@+id/lin9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_below="@id/lin8"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -329,24 +340,26 @@
             android:id="@+id/textview91"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1.2"
             android:layout_marginStart="20dp"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="@string/unpaidFee"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="到付运费："/>
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nameText92"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="2"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="2"
             android:autofillHints="Account"
             android:background="@color/white"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -356,7 +369,6 @@
         android:id="@+id/line3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line1"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
@@ -370,7 +382,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="50"
             android:background="@drawable/btn_shape"
-            android:text="返回"
+            android:text="@string/back"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="ButtonStyle" />
@@ -383,7 +395,7 @@
             android:layout_marginEnd="20dp"
             android:layout_weight="50"
             android:background="@drawable/btn_shape"
-            android:text="保存"
+            android:text="@string/save"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="ButtonStyle" />

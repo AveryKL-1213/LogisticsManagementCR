@@ -13,4 +13,16 @@
     <string name="nativeBill">本机运单</string>
     <string name="companyBillXML">公司运单XML</string>
     <string name="companyBillJSON">公司运单JSON</string>
+    <string name="enterBill">录入订单</string>
+    <string name="arrivalStation">到站：</string>
+    <string name="shenyang">发站：沈阳</string>
+    <string name="consignor">发货人</string>
+    <string name="consignorPhone">发货电话：</string>
+    <string name="consignee">收货人：</string>
+    <string name="consigneePhone">收货电话：</string>
+    <string name="goodsName">货物名称：</string>
+    <string name="pieces">件数：</string>
+    <string name="paidFee">已付运费</string>
+    <string name="unpaidFee">到付运费：</string>
+    <string name="save">保 存</string>
 </resources>
